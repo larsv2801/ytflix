@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTflix</title>
+    <style>
+        body{
+         margin:0;
+         padding:0;
+         background-color: black;
+        }
+
+        #playsection{
+            display:none;
+        }
+
+        #homesection{
+            display:block;
+        }
+
+        #seriesection{
+            display:none;
+            flex-direction: column;
+            gap:1.5vw;
+            padding:1.5vw;
+        }
+
+        iframe{
+            border-radius:15px;
+            width:100dvw;
+            height:99vh;
+        }
+
+        .serie{
+            width:20vw;
+            height:15vw;
+            border-radius:15px;
+            background-color: green;
+            flex-shrink: 0;
+        }
+
+        #seriescroller{
+            display:flex;
+            flex-direction: row;
+            gap:1vw;
+            overflow-x:scroll;
+        }
+
+        .afl{
+            width:20vw;
+            height:12vw;
+            border-radius:15px;
+            flex-shrink: 0;
+            background-repeat: no-repeat;
+            overflow:hidden;
+            outline:1px red solid;
+            position:relative;
+            margin-left:1vw;
+        }
+
+        .afl div{
+            width:100%;
+            height:100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--AIzaSyCdKgHXEcO-drXrLFlyLaGcEgxFn2fDZ_0-->
+
+<section id="homesection">
+    <div id="seriescroller">
+        <div class="serie" onclick="getplaylistitems(plids[0]);"></div>
+        <div class="serie" onclick="getplaylistitems(plids[1]);"></div>
+        <div class="serie" onclick="getplaylistitems(plids[2]);"></div>
+        <div class="serie" onclick="getplaylistitems(plids[3]);"></div>
+        <div class="serie" onclick="getplaylistitems(plids[4]);"></div>
+        <div class="serie" onclick="getplaylistitems(plids[5]);"></div>
+    </div>
+</section>
+
+<section id="seriesection">
+
+</section>
+
+<section id="playsection">
+    <iframe id="ytiframe"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+</section>
+
+    <script>
+        const plids = ['PLj8xiTIFL1M3gSW1ChcsbZj9E7xvdIhjI', 'PLH1mbb5IQegVswat5wBmFpdvsvYEqDP8e', 'PLiSlrzIEN5WK9rJjG1tmHtQqEZ6dW_W5P', 'PLiSlrzIEN5WIOJi_MMu0ocuJb3wqN1ZSK', 'PLgAnRtSgbeHrbihRo2xmc6zMUgrKErDAZ'];
+        var pllength = 5;
+
+
+        function getplaylistitems(plid){
+            const requestOptions = {
+                method: "GET",
+                redirect: "follow"
+            };
+
+            fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${plid}&key=AIzaSyCdKgHXEcO-drXrLFlyLaGcEgxFn2fDZ_0`, requestOptions)
+                .then((response) => response.json())
+                .then((result) => {
+                    document.getElementById("homesection").style.display = "none";
+                    document.getElementById("playsection").style.display = "none";
+                    document.getElementById("seriesection").style.display = "flex";
+                    document.getElementById("seriesection").innerHTML = "";
+                    for(let i = 0; i < pllength; i++){
+                        var el = document.createElement("div");
+                        el.classList.add('afl');
+                        el.style.backgroundImage = `url(${result.items[i].snippet.thumbnails.high.url})`;
+                        el.style.backgroundSize = "cover";
+                        el.innerHTML = `<div onclick="playafl('${result.items[i].snippet.resourceId.videoId}')"></div>`;
+                        document.getElementById("seriesection").appendChild(el);
+                    }
+                    
+                })
+                .catch((error) => console.error(error));
+            }
+
+
+            function playafl(aflid){
+                document.getElementById("homesection").style.display = "none";
+                document.getElementById("playsection").style.display = "block";
+                document.getElementById("seriesection").style.display = "none";
+                console.log(aflid);
+                document.getElementById("ytiframe").src = `https://www.youtube.com/embed/${aflid}`;
+                document.getElementById("ytiframe").allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            }
+    </script>
+</body>
+</html>
