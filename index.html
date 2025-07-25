@@ -17,34 +17,94 @@
 
         #homesection{
             display:block;
+            padding-bottom:1vw;
         }
 
         #seriesection{
             display:none;
             flex-direction: column;
-            gap:1.5vw;
-            padding:1.5vw;
+            gap:1vw;
+            padding:4vw;
+            padding-top:15vw;
+            font-family:arial;
+            color:white;
+        }
+
+        .titels h2{
+            text-align:left;
+            height: 12vw;
+            /*outline:1px red solid;*/
+            margin-top:0;
+            margin-bottom:0;
+            padding:0;
+            display:flex;
+            align-items:center;
+        }
+
+        .titels{
+            width:60vw;
+            position:absolute;
+            right:1vw;
+            top:15vw;
+           font-family:arial;
+            color:white; 
+            display:flex;
+            flex-direction: column;
+            gap:1vw;
+            margin:0;
+            /*outline:1px green solid;*/
         }
 
         iframe{
             border-radius:15px;
             width:100dvw;
             height:99vh;
+            border:none;
+            outline:none;
         }
 
         .serie{
             width:20vw;
             height:15vw;
             border-radius:15px;
-            background-color: green;
+            background: linear-gradient(135deg,rgb(79, 79, 79),rgb(30, 30, 30));
             flex-shrink: 0;
+            background-size:cover;
+            background-position:center;
+            outline:2px rgba(48, 48, 48, 0.921) solid;
+            transform:scale(1);
+            transition:0.3s;
         }
 
         #seriescroller{
             display:flex;
             flex-direction: row;
             gap:1vw;
+            height:15.5vw;
+            align-items:center;
             overflow-x:scroll;
+            padding-left:1vw;
+            padding-right:1vw;
+            margin-top:0vw;
+        }
+
+        .scroller{
+            display:flex;
+            flex-direction: row;
+            gap:1vw;
+            height:15.5vw;
+            align-items:center;
+            overflow-x:scroll;
+            padding-left:1vw;
+            padding-right:1vw;
+            margin-top:0vw;
+        }
+
+        #homesection h2{
+            font-family:arial;
+            color:white;
+            margin-left:1.5vw;
+            margin-top:3vw;
         }
 
         .afl{
@@ -54,9 +114,10 @@
             flex-shrink: 0;
             background-repeat: no-repeat;
             overflow:hidden;
-            outline:1px red solid;
+            outline:2px rgba(48, 48, 48, 0.921) solid;
             position:relative;
-            margin-left:1vw;
+            transition:0.3s;
+           /*margin-left:1vw;*/
         }
 
         .afl div{
@@ -68,75 +129,489 @@
             width: 100%;
             height: 100%;
         }
+
+        .serie:hover{
+            background-size:120%;
+            outline:3px white solid;
+            transition:0.3s;
+            transform:scale(1.01);
+            cursor:pointer;
+        }
+
+        .serie:focus{
+            background-size:120%;
+            outline:3px white solid;
+            transition:0.3s;
+            transform:scale(1.01);
+            cursor:pointer;
+        }
+
+        .afl:hover{
+            outline:2px white solid;
+            transition:0.3s;
+            transform:scale(1.01);
+            cursor:pointer;
+        }
+
+        .afl:focus{
+            outline:2px white solid;
+            transition:0.3s;
+            transform:scale(1.01);
+            cursor:pointer;
+        }
+
+        .homebutton{
+            background-color: red;
+            color:white;
+            outline:none;
+            border:none;
+            padding:0.7vw;
+            font-size:1.1vw;
+            border-radius:5px;
+            position:fixed;
+            left: 3.6vw;
+            top:1vw;
+            display:flex;
+            z-index:999;
+            transform:scale(1);
+            transition:0.3s;
+        }
+
+        .homebutton:hover{
+            transform:scale(1.1);
+            outline:2px white solid;
+            transition:0.3s;
+            cursor:pointer;
+        }
+
+        .homebutton:focus{
+            transform:scale(1.1);
+            outline:2px white solid;
+            transition:0.3s;
+            cursor:pointer;
+        }
+
+        .banner{
+            width:100%;
+            height:35%;
+            background-size: cover;
+            background-position:center;
+            position:absolute;
+            top:0%;
+            left:0%;
+        }
+        .banner::after{
+            content:" ";
+            width:100%;
+            height:100%;
+            background:linear-gradient(transparent,black);
+            display:flex;
+        }
+
+        #settings{
+            display:none;
+            /*display:flex;*/
+            z-index:9999;
+            width:50vw;
+            height:58dvh;
+            border-radius:15px;
+            border:2px white solid;
+            background-color:black;
+            position:fixed;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+        #setinputs{
+            width:100%;
+            margin-top:1dvh;
+            height:39dvh;
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+            gap:1vw;
+            justify-content:center;
+        }
+
+        #setinputs input{
+            width:20vw;
+            max-height:4vw;
+        }
+
+        #plusbutton{
+            width:42vw;
+            height:3vw;
+            position:absolute;
+            left:50%;
+            bottom:11%;
+            transform:translate(-50%,-50%);
+            outline:none;
+            border:none;
+            background-color: rgb(50, 50, 50);
+            color:white;
+            border-radius:10px;
+            transition:0.3s;
+        }
+        #savebutton{
+            width:42vw;
+            height:3vw;
+            position:absolute;
+            left:50%;
+            bottom:-1%;
+            transform:translate(-50%,-50%);
+            background-color:red;
+            color:white;
+            border-radius:10px;
+            outline:none;
+            border:none;
+            transition:0.3s;
+        }
+
+        #settingsbutton {
+            padding: 0.7vw;
+            position:fixed;
+            bottom:2vw;
+            right:2vw;
+            background-color: red;
+            color:white;
+            border-radius:10px;
+            outline:none;
+            border:none;
+            transition:0.2s;
+            transform-origin: center;
+            display:flex;
+            z-index:999;
+        }
+
+        #settingsbutton:hover{
+            transform:scale(1.1);
+            transition:0.3s;
+            outline:2px white solid;
+        }
+
+        #settingsbutton:focus{
+            transform:scale(1.1);
+            transition:0.3s;
+            outline:2px white solid;
+        }
+
+        #savebutton:hover, #plusbutton:hover{
+            transform:translate(-50%,-50%) scale(1.01);
+            transition:0.3s;
+            outline:2px white solid;
+        }
+
+        #savebutton:focus, #plusbutton:focus{
+            transform:translate(-50%,-50%) scale(1.01);
+            transition:0.3s;
+            outline:2px white solid;
+        }
+
+        #search{
+            outline:2px rgba(48, 48, 48, 0.921) solid;
+            border:none;
+            width:55vw;
+            height:2.5vw;
+            border-radius:50px;
+            position:absolute;
+            left:50%;
+            top:3.5%;
+            transform: translate(-50%,-50%);
+            background-color:transparent;
+            color:white;
+            font-family:arial;
+            padding-left:1vw;
+            padding-right:1vw;
+            display:none;
+        }
+
     </style>
 </head>
-<body>
+<body onload="loadset();">
     <!--AIzaSyCdKgHXEcO-drXrLFlyLaGcEgxFn2fDZ_0-->
 
-<section id="homesection">
-    <div id="seriescroller">
-        <div class="serie" onclick="getplaylistitems(plids[0]);"></div>
-        <div class="serie" onclick="getplaylistitems(plids[1]);"></div>
-        <div class="serie" onclick="getplaylistitems(plids[2]);"></div>
-        <div class="serie" onclick="getplaylistitems(plids[3]);"></div>
-        <div class="serie" onclick="getplaylistitems(plids[4]);"></div>
-        <div class="serie" onclick="getplaylistitems(plids[5]);"></div>
+<div id="settings">
+    <div id="setinputs">
+        <!--<input oninput="verwijderset()" id="setlink1" class="setlink" type="text" value="PLj8xiTIFL1M3gSW1ChcsbZj9E7xvdIhjI">
+        <input id="setthumb1" class="setthumb" type="text" value="https://assets.carwow.co.uk/logos/carwow-logo-thumb.jpg">
+
+        <input oninput="verwijderset()" id="setlink2" class="setlink" type="text" value="PL749D193FC1F05731">
+        <input id="setthumb2" class="setthumb" type="text" value="https://images.squarespace-cdn.com/content/v1/5484f0c2e4b0982d89a02d1f/1518728406686-VW7PK0BLEXLR38IRS8GR/Top_Gear.jpg?format=1500w">
+
+        <input oninput="verwijderset()" id="setlink3" class="setlink" type="text" value="PLc7b3RpANMM9JFwMUytg0TesSBNthZfa3">
+        <input id="setthumb3" class="setthumb" type="text" value="https://stadiumsupertrucks.com/wp-content/uploads/2012/11/SSTdirtbg-520x220.jpg">
+
+        <input oninput="verwijderset()" id="setlink4" class="setlink" type="text" value="PL-5sURDcN_ZnEEe5LWRD6Ou55EcF5qnXs">
+        <input id="setthumb4" class="setthumb" type="text" value="https://upload.wikimedia.org/wikipedia/en/c/c1/InsideTheFactoryTitleCard.jpeg">
+
+        <input oninput="verwijderset()" id="setlink5" class="setlink" type="text" value="PLgAnRtSgbeHrbihRo2xmc6zMUgrKErDAZ">
+        <input id="setthumb5" class="setthumb" type="text" value="https://www.autohebdo.fr/app/uploads/2022/11/m20017_FE-logo-blue-e1669629637345.png">
+
+        <input onkeypress="verwijderset(6)" id="setlink6" class="setlink" type="text" value="PLnyQ78msuPwaQyDr0VXjQ9A2Cx7bgumJo">
+        <input id="setthumb6" class="setthumb" type="text" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStIOYHU7mqGlDw2jEX0n3une0WH6teNe9Nqg&s">-->
     </div>
+    <button id="plusbutton" onclick="plusset()" tabindex="0" >+</button>
+    <button id="savebutton" onclick="saveset()" tabindex="0" >Save</button> 
+</div>
+
+<section id="homesection">
+    <input type="text" id="search">
+    <h2>Personal:</h2>
+    <div class="scroller" id="seriescroller" tabindex="-1">
+    </div>
+    <h2>Cars:</h2>
+    <div class="scroller" id="carsportscroller" tabindex="-1" >
+        <div tabindex="0" class="serie" style="background:url('https://assets.carwow.co.uk/logos/carwow-logo-thumb.jpg'); background-size:100%;background-position:center;" onclick="getplaylistitems('PLj8xiTIFL1M3gSW1ChcsbZj9E7xvdIhjI', 'https://assets.carwow.co.uk/logos/carwow-logo-thumb.jpg');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://images.squarespace-cdn.com/content/v1/5484f0c2e4b0982d89a02d1f/1518728406686-VW7PK0BLEXLR38IRS8GR/Top_Gear.jpg?format=1500w');background-size:cover;background-position: center;" onclick="getplaylistitems('PL749D193FC1F05731', 'https://images.squarespace-cdn.com/content/v1/5484f0c2e4b0982d89a02d1f/1518728406686-VW7PK0BLEXLR38IRS8GR/Top_Gear.jpg?format=1500w');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://stadiumsupertrucks.com/wp-content/uploads/2012/11/SSTdirtbg-520x220.jpg');background-size:cover;background-position:center;" onclick="getplaylistitems('PLc7b3RpANMM9JFwMUytg0TesSBNthZfa3', 'https://stadiumsupertrucks.com/wp-content/uploads/2012/11/SSTdirtbg-520x220.jpg');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://upload.wikimedia.org/wikipedia/en/c/c1/InsideTheFactoryTitleCard.jpeg');background-size:cover;background-position:center;" onclick="getplaylistitems('PL-5sURDcN_ZnEEe5LWRD6Ou55EcF5qnXs', 'https://upload.wikimedia.org/wikipedia/en/c/c1/InsideTheFactoryTitleCard.jpeg');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://www.autohebdo.fr/app/uploads/2022/11/m20017_FE-logo-blue-e1669629637345.png');background-size:cover;background-position:center;" onclick="getplaylistitems('PLgAnRtSgbeHrbihRo2xmc6zMUgrKErDAZ', 'https://www.autohebdo.fr/app/uploads/2022/11/m20017_FE-logo-blue-e1669629637345.png');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://yt3.googleusercontent.com/yBPA1KpjPei-SMx8Hyt880cw9_BMchExBY_p-OkfYRQh9F3uk-ccTXEcwNDx9_78FEY9EygK5Q=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-position:center;" onclick="getplaylistitems('PLnyQ78msuPwaQyDr0VXjQ9A2Cx7bgumJo', 'https://yt3.googleusercontent.com/yBPA1KpjPei-SMx8Hyt880cw9_BMchExBY_p-OkfYRQh9F3uk-ccTXEcwNDx9_78FEY9EygK5Q=s900-c-k-c0x00ffffff-no-rj');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://www.harfordhappenings.com/wp-content/uploads/2016/02/Monster-Jam-Logo.jpg');background-size:cover;background-position:center;" onclick="getplaylistitems('PLaSx_lF7AsqyraPQ6exjOY5C7e-aye_AW', 'https://www.harfordhappenings.com/wp-content/uploads/2016/02/Monster-Jam-Logo.jpg');"></div>
+    </div>
+    <h2>Sports:</h2>
+    <div class="scroller" id="sportscroller" tabindex="-1">
+        <div tabindex="0" class="serie" style="background:url('https://1000logos.net/wp-content/uploads/2019/01/Spanish-La-Liga-Logo.png');background-size:cover;background-position:center;" onclick="getplaylistitems('PLKj1QUtwqLN-e8g2-WImgL0N4dKsekghk', 'https://1000logos.net/wp-content/uploads/2019/01/Spanish-La-Liga-Logo.png');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://e0.365dm.com/14/11/1600x900/world-cup-trophy-fifa-football_3228493.jpg?20150606090451');background-size:cover;background-position:center;" onclick="getplaylistitems('PL8zSHIq9DjR6NFmsPw2ahTGE-hdUWLGqx', 'https://e0.365dm.com/14/11/1600x900/world-cup-trophy-fifa-football_3228493.jpg?20150606090451');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://abellagraphicdesign.com/wp-content/uploads/2023/09/usopen-1.jpg');background-size:cover;background-position:center;" onclick="getplaylistitems('PL_2A0MxHOgda-1tlPgByVmCY2Ril6gMCQ', 'https://abellagraphicdesign.com/wp-content/uploads/2023/09/usopen-1.jpg');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://kongres-magazine.eu/wp-content/uploads/2019/05/ZA1_4135.jpg');background-size:cover;background-position:center;" onclick="getplaylistitems('PLXxhsJqAKWvJj_a1Mb-lZq8N8lm02dVjT', 'https://kongres-magazine.eu/wp-content/uploads/2019/05/ZA1_4135.jpg');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://i.ytimg.com/vi/eyUfuv05UsM/maxresdefault.jpg');background-size:cover;background-position:center;" onclick="getplaylistitems('PLauBdV0kYLiTKh0JrwETKbhJb8TaG47l3', 'https://static.wikia.nocookie.net/sasukepedia/images/c/c1/ANWCouples.png/revision/latest/scale-to-width-down/1200?cb=20240610124112');"></div>
+    </div>
+    <h2>Comedy</h2>
+    <div class="scroller" id="comediescroller" tabindex="-1">
+        <div tabindex="0" class="serie" style="background:url('https://consequence.net/wp-content/uploads/2021/01/rowan-atkinson-mr-bean-stressful-exhausting.png');background-size:cover;background-position:center;" onclick="getplaylistitems('PLC1EDzqtkrh9Vqv7dOHN30tuIw2gyRWFf', 'https://consequence.net/wp-content/uploads/2021/01/rowan-atkinson-mr-bean-stressful-exhausting.png');"></div>
+        <div tabindex="0" class="serie" style="background:url('https://i.ytimg.com/vi/0iiDi7GucF0/maxresdefault.jpg');background-size:cover;background-position:center;" onclick="getplaylistitems('PLy0HjZ5v7JEuQsoW-BhTX7D7GQWfp-mIQ', 'https://i.ytimg.com/vi/0iiDi7GucF0/maxresdefault.jpg');"></div>
+    </div>
+    <button id="settingsbutton" class="setbut" onclick="settingsopen()" tabindex="0" >settings</button>
 </section>
 
 <section id="seriesection">
-
+<button onclick="tohome()" class="homebutton">Home</button>
+<div class="banner"></div>
+<div class="titels"></div>
 </section>
 
 <section id="playsection">
-    <iframe id="ytiframe"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen>
-    </iframe>
+    <iframe id="ytplayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <button onclick="back()" class="homebutton">Back</button>
+    <!--<div id="ytplayer"></div>-->
 </section>
 
     <script>
-        const plids = ['PLj8xiTIFL1M3gSW1ChcsbZj9E7xvdIhjI', 'PLH1mbb5IQegVswat5wBmFpdvsvYEqDP8e', 'PLiSlrzIEN5WK9rJjG1tmHtQqEZ6dW_W5P', 'PLiSlrzIEN5WIOJi_MMu0ocuJb3wqN1ZSK', 'PLgAnRtSgbeHrbihRo2xmc6zMUgrKErDAZ'];
+        let plids = ['PLj8xiTIFL1M3gSW1ChcsbZj9E7xvdIhjI', 'PL749D193FC1F05731', 'PLc7b3RpANMM9JFwMUytg0TesSBNthZfa3', 'PL-5sURDcN_ZnEEe5LWRD6Ou55EcF5qnXs', 'PLgAnRtSgbeHrbihRo2xmc6zMUgrKErDAZ','PLnyQ78msuPwaQyDr0VXjQ9A2Cx7bgumJo'];
+        let plthumbs = [];
         var pllength = 5;
+        var aantpls = 0;
+        var vorigeaantpls = 0;
+        var laatstepl = "";
+        var laatstacht = "";
+        var setting = 0;
 
 
-        function getplaylistitems(plid){
+        function getplaylistitems(plid, acht){
             const requestOptions = {
                 method: "GET",
                 redirect: "follow"
             };
 
-            fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${plid}&key=AIzaSyCdKgHXEcO-drXrLFlyLaGcEgxFn2fDZ_0`, requestOptions)
+            fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,status&playlistId=${plid}&maxResults=50&key=AIzaSyCdKgHXEcO-drXrLFlyLaGcEgxFn2fDZ_0`, requestOptions)
                 .then((response) => response.json())
                 .then((result) => {
+                    laatstepl = plid;
+
                     document.getElementById("homesection").style.display = "none";
                     document.getElementById("playsection").style.display = "none";
                     document.getElementById("seriesection").style.display = "flex";
                     document.getElementById("seriesection").innerHTML = "";
+
+                    var le = document.createElement("button");
+                    le.classList.add('homebutton');
+                    le.innerHTML = "Home";
+                    le.onclick = function () {tohome();};
+                    document.getElementById("seriesection").appendChild(le);
+
+                    var la = document.createElement("div");
+                    la.classList.add('banner');
+                    la.style.background = `url(${acht})`;
+                    la.style.backgroundSize = "cover";
+                    la.style.backgroundPosition = "center";
+                    document.getElementById("seriesection").appendChild(la);
+                    laatstacht = acht;
+
+                    var li = document.createElement("div");
+                    li.classList.add('titels');
+                    li.setAttribute("id", "titels");
+                    document.getElementById("seriesection").appendChild(li);
+
+                    pllength = result.items.length;
+
                     for(let i = 0; i < pllength; i++){
-                        var el = document.createElement("div");
+                        if(result.items[i].status.privacyStatus === "public"){
+                           var el = document.createElement("div");
                         el.classList.add('afl');
-                        el.style.backgroundImage = `url(${result.items[i].snippet.thumbnails.high.url})`;
+                        el.style.backgroundImage = `url(${result.items[i].snippet.thumbnails.maxres?.url
+         || result.items[i].snippet.thumbnails.high?.url})`;
                         el.style.backgroundSize = "cover";
                         el.innerHTML = `<div onclick="playafl('${result.items[i].snippet.resourceId.videoId}')"></div>`;
                         document.getElementById("seriesection").appendChild(el);
+
+                        var le = document.createElement("h2");
+                        le.innerHTML = `${result.items[i].snippet.title}`;
+                        document.getElementById("titels").appendChild(le); 
+                        }
+                        document.querySelector(".banner").scrollIntoView({ behavior: "smooth" });
+
                     }
-                    
                 })
                 .catch((error) => console.error(error));
             }
 
 
-            function playafl(aflid){
-                document.getElementById("homesection").style.display = "none";
-                document.getElementById("playsection").style.display = "block";
+
+            function tohome(){
+                document.getElementById("homesection").style.display = "block";
+                document.getElementById("playsection").style.display = "none";
                 document.getElementById("seriesection").style.display = "none";
-                console.log(aflid);
-                document.getElementById("ytiframe").src = `https://www.youtube.com/embed/${aflid}`;
-                document.getElementById("ytiframe").allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                document.getElementById("ytplayer").src = "";
+                /*player.pauseVideo();*/
             }
+
+            function back(){
+                getplaylistitems(laatstepl, laatstacht);
+                document.getElementById("ytplayer").src = "";  
+            }
+
+function playafl(aflid){
+    document.getElementById("homesection").style.display = "none";
+    document.getElementById("playsection").style.display = "flex";
+    document.getElementById("seriesection").style.display = "none";
+    console.log(aflid);
+    document.getElementById("ytplayer").src = `https://www.youtube-nocookie.com/embed/${aflid}?autoplay=1&rel=0&modestbranding=1&showinfo=0`;
+}
+
+function saveset(){
+    document.getElementById("seriescroller").innerHTML = "";
+    plids = [];
+    plthumbs = [];
+
+    for(let i = 0; i < aantpls; i++){
+        console.log("setlink" + (i + 1));
+        console.log("setthumb" + (i + 1));
+
+        let jef = i + 1;
+        let playid = document.getElementById("setlink" + jef).value;
+        let playthumb = document.getElementById("setthumb" + jef).value;
+
+        plthumbs.push(playthumb);
+
+        var el = document.createElement("div");
+        el.classList.add('serie');
+        el.style.background = `url(${playthumb})`;
+        el.style.backgroundSize = "cover";
+        el.style.backgroundPosition = "center";
+        plids.push(playid);
+        el.onclick = function () {
+            getplaylistitems(plids[i], plthumbs[i])
+        }
+        document.getElementById("seriescroller").appendChild(el);
+    }
+    vorigeaantpls = aantpls;
+    localStorage.setItem("plids", JSON.stringify(plids));
+    localStorage.setItem("plthumbs", JSON.stringify(plthumbs));
+    localStorage.setItem("aantpls", aantpls);
+    settingsopen();
+}
+
+function verwijderset(welk){
+    console.log("verwijder " + welk);
+    var verwtest = document.getElementById("setlink" + welk).value;
+    if(welk === aantpls && verwtest === "delete"){
+        document.getElementById("setlink" + welk).style.display = "none";
+        document.getElementById("setthumb" + welk).style.display = "none";
+        aantpls--;
+    } else {
+        console.log(welk + " is niet gelijk aan: " + aantpls + " en/of " + verwtest + " is niet gelijk aan 'del'");
+    }
+}
+
+function loadset() {
+
+if(localStorage.getItem("plids")){
+    plids = JSON.parse(localStorage.getItem("plids"));
+}
+
+if(localStorage.getItem("plthumbs")){
+    plthumbs = JSON.parse(localStorage.getItem("plthumbs"));
+}
+
+if(localStorage.getItem("aantpls")){
+    aantpls = localStorage.getItem("aantpls");
+}
+
+if(localStorage.getItem("plthumbs") && localStorage.getItem("plids")){
+  document.getElementById("seriescroller").innerHTML = "";
+for(let i = 0; i < plids.length; i++){
+
+    var el = document.createElement("div");
+    el.classList.add('serie');
+    el.style.background = `url(${plthumbs[i]})`;
+    el.style.backgroundSize = "cover";
+    el.style.backgroundPosition = "center";
+    el.tabIndex = "0";
+
+    el.onclick = function () {
+            getplaylistitems(plids[i], plthumbs[i])
+    }
+    document.getElementById("seriescroller").appendChild(el);
+
+    var el = document.createElement("input");
+    el.type = "text";
+    el.classList.add('setlink');
+    el.value = plids[i];
+    el.setAttribute("id", "setlink" + (i + 1));
+    el.oninput = function () {
+        verwijderset(i+1);
+    }
+    document.getElementById("setinputs").appendChild(el);
+
+    var le = document.createElement("input");
+    le.type = "text";
+    le.classList.add('setthum');
+    le.value = plthumbs[i];
+    le.setAttribute("id", "setthumb" + (i + 1));
+    document.getElementById("setinputs").appendChild(le);
+}  
+}
+
+}
+
+function settingsopen(){
+    if(setting === 0){
+        setting = 1;
+        document.getElementById("settings").style.display = "flex";
+    } else{
+        setting = 0;
+        document.getElementById("settings").style.display = "none";
+    }
+}
+
+function plusset(){
+        aantpls++;
+
+        var el = document.createElement("input");
+        el.type = "text";
+        el.classList.add('setlink');
+        el.placeholder = "Playlist ID";
+        el.setAttribute("id", "setlink" + aantpls);
+        document.getElementById("setinputs").appendChild(el);
+
+        var le = document.createElement("input");
+        le.type = "text";
+        le.classList.add('setthum');
+        le.placeholder = "Thumbnail URL";
+        le.setAttribute("id", "setthumb" + aantpls);
+        document.getElementById("setinputs").appendChild(le);
+}
     </script>
 </body>
 </html>
